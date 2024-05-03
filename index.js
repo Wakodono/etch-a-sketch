@@ -1,14 +1,28 @@
 const container = document.querySelector('.container');
+const buttonContainer = document.querySelector('.button-container')
 
 const newGrid = document.createElement('button')
 newGrid.classList.add('new-grid');
 newGrid.style.height = '40px'
 newGrid.textContent = 'New Grid';
 
-container.appendChild(newGrid);
+buttonContainer.appendChild(newGrid);
 
 newGrid.addEventListener('click', () => {
-    alert(prompt("How many squares would you like on the x and y axis of your grid?", 0));
+    container.innerHTML = '';
+    
+    let isValidInput = false;
+    let userInput;
+    while (isValidInput === false) {
+        userInput = +prompt("How many squares would you like on the x and y axis of your grid?", "16");
+
+        if (Number.isInteger(userInput) && userInput >= 0 && userInput <= 100) {
+            isValidInput = true;
+        } else {
+            alert('Please make sure your number is an Integer between 0 and 100');
+        }
+    }
+    createGridSquares(userInput);
 })
 
 function createGridSquares(gridSize) {
