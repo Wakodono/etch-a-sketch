@@ -1,10 +1,15 @@
 .container {
- width: 600px;
- height: 600px;   
- display: flex;
- flex-wrap: wrap;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .square {
-    border: 1px solid black;
+   border: 1px solid black;
+}
+
+.new-grid {
+    width: 50%;
+    border-radius: 5px;
 }
